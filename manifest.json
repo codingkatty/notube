@@ -17,17 +17,12 @@
     },
     "permissions": [
         "activeTab",
-        "scripting"
+        "scripting",
+        "storage",
+        "tabs"
     ],
-    "content_scripts": [
-        {
-            "js": [
-                "content.js"
-            ],
-            "matches": [
-                "https://youtube.com/*"
-            ]
-        }
+    "host_permissions": [
+        "https://*.youtube.com/*"
     ],
     "commands": {
         "_execute_action": {
