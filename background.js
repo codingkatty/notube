@@ -1,3 +1,4 @@
+// turn on/off
 chrome.action.onClicked.addListener(async (tab) => {
     const prevState = await chrome.action.getBadgeText({ tabId: tab.id });
     const nextState = prevState === 'ON' ? 'OFF' : 'ON';
@@ -24,6 +25,7 @@ chrome.action.onClicked.addListener(async (tab) => {
     }
 });
 
+// load when open youtube
 chrome.tabs.onUpdated.addListener(async (tabId, changeInfo, tab) => {
     if (changeInfo.status === 'complete' && tab.url.includes('youtube.com')) {
         const data = await chrome.storage.local.get('state');
